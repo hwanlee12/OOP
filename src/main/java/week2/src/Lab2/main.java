@@ -2,6 +2,17 @@ package week2.src.Lab2;
 import java.util.Scanner;
 
 public class main {
+    public float CalBMI(int select,int weight, float height) {
+        float result = 0;
+        if(select == 1) {
+            result = (float)weight / (height * height);
+        }
+        else if(select == 2) {
+            result = (float)weight * 703 / (height* height);
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         System.out.println("<Body Mass Calculator>");
         System.out.println("Eneter 1 for(K,M), 2 for (P, I) :");
@@ -13,10 +24,11 @@ public class main {
         int num = in.nextInt();
         human[] bmi_list = new human[num];
 
-        int test = 0;
         int weight;
         float height;
-        float result = 0;
+        float result;
+
+        main fun_main = new main();
 
         switch(select){
             case 1 :
@@ -26,10 +38,8 @@ public class main {
                     weight = in.nextInt();
                     System.out.println("Enter Height : ");
                     height = in.nextFloat();
-                    //bmi_list[i] = new human(weight, height, result);
-                    bmi_list[i] = new human(test, test, result);
-                    bmi_list[i].setWeight(weight);
-                    bmi_list[i].setHeight(height);
+                    result = fun_main.CalBMI(select, weight, height);
+                    bmi_list[i] = new human(weight, height, result);
                 }
                 break;
 
@@ -40,16 +50,14 @@ public class main {
                     weight = in.nextInt();
                     System.out.println("Enter Height : ");
                     height = in.nextFloat();
-                    //bmi_list[i] = new human(weight, height, result);
-                    bmi_list[i] = new human(test, test, result);
-                    bmi_list[i].setWeight(weight);
-                    bmi_list[i].setHeight(height);
+                    result = fun_main.CalBMI(select, weight, height);
+                    bmi_list[i] = new human(weight, height, result);
                 }
                 break;
         }
 
         for(int i = 0; i < num; i++) {
-            System.out.printf("person %d BMI is : %.4f\n", i + 1, bmi_list[i].getResult(select));
+            System.out.printf("person %d BMI is : %.4f\n", i + 1, bmi_list[i].getResult());
         }
     }
 }

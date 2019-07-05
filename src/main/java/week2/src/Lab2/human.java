@@ -11,21 +11,17 @@ public class human {
         this.result = result;
     }
 
+    public void setResult(float result){
+        this.result = result;
+    }
     public void setWeight(int weight){
         this.weight = weight;
     }
-
     public void setHeight(float height){
         this.height = height;
     }
 
-    public float getResult(int select){
-        if(select == 1) {
-            result = (float)weight / (height * height);
-        }
-        else if(select == 2) {
-            result = (float)weight * 703 / (height* height);
-        }
+    public float getResult() {
         return result;
     }
 }
