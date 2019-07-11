@@ -20,7 +20,7 @@ public class main {
         Netflix netflix2 ;
 
         ArrayList<VideoContent> externalContent = new ArrayList<VideoContent>();
-        for(int i = 0; i<externalContentName.length; i++)
+        for(int i = 0; i < externalContentName.length; i++)
         {
             VideoContent externalContent1 = new VideoContent(externalContentName[i], externalContentProfit[i], externalContentCost[i], externalContentQuality[i]);
             externalContent.add(externalContent1);
