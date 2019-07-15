@@ -37,7 +37,7 @@ public class Func {
         {
             while (wordbook.getSize() > 0) {
                 show();
-                name = scanner.next();
+                name = scanner.nextLine();
                 wordbook.enter(name);
                 System.out.flush();
             }

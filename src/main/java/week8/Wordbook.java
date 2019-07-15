@@ -28,7 +28,7 @@ public class Wordbook implements AutoCloseable {
             System.out.println("Program finished");
             System.exit(0);
         }
-        else if(name.length() == 0)
+        else if(name.isEmpty())
         {
             System.out.println("You must type a word! Your input is empty");
             throw new Exception("You must type a word! Your input is empty");
@@ -36,7 +36,6 @@ public class Wordbook implements AutoCloseable {
         else {
             throw new Exception(name + " is not in the WordBook");
         }
-
     }
 
     @Override
