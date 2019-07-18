@@ -7,10 +7,13 @@ public class Bishop extends Piece{
     }
 
     @Override
-    public void Moveto(int row, int col)
+    public void Moveto(int row, int col, Board board)
     {
         if(board.position(row, col) != null && board.position(row, col).color == color)
+        {
+            System.out.println("can't move\n");
             return;
+        }
         else if((Math.abs(super.row - row) + Math.abs(super.col - col)) == 1)
         {
             if(super.isValid(board, super.row, row, super.col, col) == true)

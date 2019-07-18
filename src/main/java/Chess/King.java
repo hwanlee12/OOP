@@ -7,7 +7,7 @@ public class King extends Piece{
     }
 
     @Override
-    public void Moveto(int row, int col)
+    public void Moveto(int row, int col, Board board)
     {
         if(board.position(row, col) != null && board.position(row, col).color == color)
         {

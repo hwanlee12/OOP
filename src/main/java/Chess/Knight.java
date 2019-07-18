@@ -8,8 +8,11 @@ public class Knight extends Piece{
     }
 
     @Override
-    public void Moveto(int row, int col)
+    public void Moveto(int row, int col, Board board)
     {
+        board.printBoard();
+
+
         if(board.position(row, col) != null && board.position(row, col).color == color)
         {
             System.out.println("can't move\n");

@@ -10,6 +10,11 @@ public class Board {
         board = new Piece[10][10];
     }
 
+    public Piece[][] getBoard()
+    {
+        return board;
+    }
+
     public Piece position(int row, int col) {
         return board[row][col];
     }
@@ -38,16 +43,17 @@ public class Board {
         for(int i = 0; i < 10; i++){
             board[8][i] = new Pawn(8,i,false, "P");
         }
-        board[9][0] = new Pawn(0,0,false,"P");
-        board[9][1] = new Rook(0,1,false,"R");
-        board[9][2] = new Knight(0,2,false,"N");
-        board[9][3] = new Bishop(0,3,false,"B");
-        board[9][4] = new King(0,4,false,"K");
-        board[9][5] = new Queen(0,5,false,"Q");
-        board[9][6] = new Bishop(0,6,false,"B");
-        board[9][7] = new Knight(0,7,false,"N");
-        board[9][8] = new Rook(0,8,false,"R");
-        board[9][9] = new Pawn(0,9,false,"P");
+        board[9][0] = new Pawn(9,0,false,"P");
+        board[9][1] = new Rook(9,1,false,"R");
+        board[9][2] = new Knight(9,2,false,"N");
+        board[9][3] = new Bishop(9,3,false,"B");
+        board[9][4] = new King(9,4,false,"K");
+        board[9][5] = new Queen(9,5,false,"Q");
+        board[9][6] = new Bishop(9,6,false,"B");
+        board[9][7] = new Knight(9,7,false,"N");
+        board[9][8] = new Rook(9,8,false,"R");
+        board[9][9] = new Pawn(9,9,false,"P");
+        printBoard();
     }
 
     // 2
@@ -181,10 +187,12 @@ public class Board {
                 count++;
             }
         }
+        printBoard();
     }
 
     // 3
     public void delPiece(){
+        printBoard();
         Scanner in = new Scanner(System.in);
         String target;
         String sub1, sub2;
@@ -211,6 +219,7 @@ public class Board {
         {
             System.out.println("no pieces\n");
         }
+        printBoard();
     }
 
     // 4
@@ -240,6 +249,7 @@ public class Board {
 
     // 5
     public void movePiece() {
+        printBoard();
         Scanner in = new Scanner(System.in);
         String target;
         String sub1, sub2;
@@ -258,9 +268,6 @@ public class Board {
             col = col - 97;
         targetPiece = position(row, col);
 
-        System.out.println(targetPiece.type + targetPiece.color);
-
-
         String target2;
         target2 = in.nextLine();
         sub1 = target2.substring(0,1);
@@ -273,6 +280,7 @@ public class Board {
             col = col - 65;
         else if( col >= 97 && col <= 106)
             col = col - 97;
-        targetPiece.Moveto(row, col);
+        targetPiece.Moveto(row, col, this);
+        printBoard();
     }
 }

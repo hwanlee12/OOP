@@ -5,6 +5,7 @@ public abstract class Piece {
     protected int col;
     protected boolean color;
     protected Board board;
+    protected Piece[][] board2;
     protected String type;
 
     public Piece(int row, int col, boolean color, String type)
@@ -12,8 +13,12 @@ public abstract class Piece {
         this.row = row;
         this.col = col;
         this.color = color;
-     //   this.board = board;
         this.type = type;
+    }
+
+    public void setBoard(Piece[][] board2)
+    {
+        board2 = board.getBoard();
     }
 
     public boolean getColor()
@@ -36,5 +41,5 @@ public abstract class Piece {
             return true;
     }
 
-    public abstract void Moveto(int row, int col);
+    public abstract void Moveto(int row, int col, Board board);
 }
