@@ -5,7 +5,6 @@ public abstract class Piece {
     protected int col;
     protected boolean color;
     protected Board board;
-    protected Piece[][] board2;
     protected String type;
 
     public Piece(int row, int col, boolean color, String type)
