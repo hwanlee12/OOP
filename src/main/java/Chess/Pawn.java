@@ -9,7 +9,10 @@ public class Pawn extends Piece {
     @Override
     public void Moveto(int row, int col) {
         if(board.position(row, col) != null && board.position(row, col).color == color)
+        {
+            System.out.println("can't move\n");
             return;
+        }
         else if((row == super.row + 1 || row == super.row - 1 ) && col == super.col)
         {
             if(super.isValid(board, super.row, row, super.col, col) == true)

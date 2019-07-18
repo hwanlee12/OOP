@@ -10,7 +10,10 @@ public class Queen extends Piece{
     public void Moveto(int row, int col)
     {
         if(board.position(row, col) != null && board.position(row, col).color == color)
+        {
+            System.out.println("can't move\n");
             return;
+        }
 
         if(Math.abs(super.row - row) == Math.abs(super.col - col))
         {

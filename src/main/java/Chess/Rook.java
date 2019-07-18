@@ -10,7 +10,10 @@ public class Rook extends Piece{
     public void Moveto(int row, int col)
     {
         if(board.position(row, col) != null && board.position(row, col).color == color)
+        {
+            System.out.println("can't move\n");
             return;
+        }
         else if((Math.abs(row - super.row) + Math.abs(col - super.col)) == 2
                 || (Math.abs(row - super.row) + Math.abs(col - super.col)) == 1)
         {

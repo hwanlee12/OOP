@@ -12,7 +12,7 @@ public abstract class Piece {
         this.row = row;
         this.col = col;
         this.color = color;
-    //    this.board = board;
+     //   this.board = board;
         this.type = type;
     }
 
