@@ -18,7 +18,7 @@ public class King extends Piece{
         if(this.color == true)
         {
             if(row == super.row +1 && (col == super.col || col == super.col + 1 || col == super.col -1)) {
-                if(super.isValid(board, super.row, row, super.col, col) == true) {
+                if(super.isValid(super.row, row, super.col, col) == true) {
                     board.pieceset(row, col, this);
                     board.pieceset(super.row, super.col, null);
                     super.row = row;
@@ -27,7 +27,7 @@ public class King extends Piece{
                 }
             }
             if(row == super.row && (col == super.col -1 || col == super.col + 1)) {
-                if(super.isValid(board, super.row, row, super.col, col) == true) {
+                if(super.isValid(super.row, row, super.col, col) == true) {
                     board.pieceset(row, col, this);
                     board.pieceset(super.row, super.col, null);
                     super.row = row;
@@ -37,7 +37,7 @@ public class King extends Piece{
             }
             for(int i = 1;i < 10; ++i){
                 if(row == super.row - i && col == super.col) {
-                    if(super.isValid(board, super.row, row, super.col, col) == true) {
+                    if(super.isValid(super.row, row, super.col, col) == true) {
                         board.pieceset(row, col, this);
                         board.pieceset(super.row, super.col, null);
                         super.row = row;
@@ -48,7 +48,7 @@ public class King extends Piece{
             }
             for(int i = 1;i < 10; ++i){
                 if(row == super.row - i && col == super.col - i) {
-                    if(super.isValid(board, super.row, row, super.col, col) == true) {
+                    if(super.isValid(super.row, row, super.col, col) == true) {
                         board.pieceset(row, col, this);
                         board.pieceset(super.row, super.col, null);
                         super.row = row;
@@ -59,7 +59,7 @@ public class King extends Piece{
             }
             for(int i = 1;i < 10; ++i){
                 if(row == super.row - i && col == super.col + i) {
-                    if(super.isValid(board, super.row, row, super.col, col) == true) {
+                    if(super.isValid(super.row, row, super.col, col) == true) {
                         board.pieceset(row, col, this);
                         board.pieceset(super.row, super.col, null);
                         super.row = row;
@@ -73,7 +73,7 @@ public class King extends Piece{
         else
         {
             if(row == super.row - 1 && (col == super.col || col == super.col + 1 || col == super.col -1)) {
-                if(super.isValid(board, super.row, row, super.col, col) == true) {
+                if(super.isValid(super.row, row, super.col, col) == true) {
                     board.pieceset(row, col, this);
                     board.pieceset(super.row, super.col, null);
                     super.row = row;
@@ -90,7 +90,7 @@ public class King extends Piece{
             }
             for(int i = 1;i < 10; ++i){
                 if(row == super.row + i && col == super.col) {
-                    if(super.isValid(board, super.row, row, super.col, col) == true) {
+                    if(super.isValid(super.row, row, super.col, col) == true) {
                         board.pieceset(row, col, this);
                         board.pieceset(super.row, super.col, null);
                         super.row = row;
@@ -101,7 +101,7 @@ public class King extends Piece{
             }
             for(int i = 1;i < 10; ++i){
                 if(row == super.row + i && col == super.col - i) {
-                    if(super.isValid(board, super.row, row, super.col, col) == true) {
+                    if(super.isValid(super.row, row, super.col, col) == true) {
                         board.pieceset(row, col, this);
                         board.pieceset(super.row, super.col, null);
                         super.row = row;
@@ -112,7 +112,7 @@ public class King extends Piece{
             }
             for(int i = 1;i < 10; ++i){
                 if(row == super.row + i && col == super.col + i) {
-                    if(super.isValid(board, super.row, row, super.col, col) == true) {
+                    if(super.isValid(super.row, row, super.col, col) == true) {
                         board.pieceset(row, col, this);
                         board.pieceset(super.row, super.col, null);
                         super.row = row;

@@ -16,7 +16,7 @@ public class Bishop extends Piece{
         }
         else if((Math.abs(super.row - row) + Math.abs(super.col - col)) == 1)
         {
-            if(super.isValid(board, super.row, row, super.col, col) == true)
+            if(super.isValid(super.row, row, super.col, col) == true)
             {
                 board.pieceset(row, col, this);
                 board.pieceset(super.row, super.col, null);
@@ -30,7 +30,7 @@ public class Bishop extends Piece{
             if(Math.abs(super.row - row) + Math.abs(super.col - col) == 4 ||
                     Math.abs(super.row - row) + Math.abs(super.col - col) == 2)
             {
-                if (super.isValid(board, super.row, row, super.col, col) == true) {
+                if (super.isValid(super.row, row, super.col, col) == true) {
                     board.pieceset(row, col, this);
                     board.pieceset(super.row, super.col, null);
                     super.row = row;

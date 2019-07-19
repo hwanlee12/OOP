@@ -20,7 +20,7 @@ public class Knight extends Piece{
         }
         else if((Math.abs(super.row - row) + Math.abs(super.col - col)) == 3)
         {
-            if(super.isValid(board, super.row, row, super.col, col) == true)
+            if(super.isValid(super.row, row, super.col, col) == true)
             {
                 board.pieceset(row, col, this);
                 board.pieceset(super.row, super.col, null);

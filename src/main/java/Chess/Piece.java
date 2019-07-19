@@ -19,7 +19,7 @@ public abstract class Piece {
         return type;
     }
 
-    public boolean isValid(Board board, int from_r, int to_r, int from_c, int to_c)
+    public boolean isValid(int from_r, int to_r, int from_c, int to_c)
     {
         if(from_r == to_r && from_c == to_c)
             return false;

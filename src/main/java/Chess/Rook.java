@@ -15,10 +15,8 @@ public class Rook extends Piece{
             return;
         }
         else if((Math.abs(row - super.row) + Math.abs(col - super.col)) == 2
-                || (Math.abs(row - super.row) + Math.abs(col - super.col)) == 1)
-        {
-            if(super.isValid(board, super.row, row, super.col, col) == true)
-            {
+                || (Math.abs(row - super.row) + Math.abs(col - super.col)) == 1) {
+            if(super.isValid(super.row, row, super.col, col) == true) {
                 board.pieceset(row,col,this);
                 board.pieceset(super.row, super.col, null);
                 super.row = row;

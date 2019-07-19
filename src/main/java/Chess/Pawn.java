@@ -13,7 +13,7 @@ public class Pawn extends Piece {
             return;
         else if((row == super.row + 1 || row == super.row - 1 ) && col == super.col)
         {
-            if(super.isValid(board, super.row, row, super.col, col) == true)
+            if(super.isValid(super.row, row, super.col, col) == true)
             {
                 board.pieceset(row, col, this);
                 board.pieceset(super.row, super.col, null);

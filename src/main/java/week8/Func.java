@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Func {
-
     final ArrayList<String> list = new ArrayList<String>(
             Arrays.asList(
                     "Malfurion",
@@ -46,8 +45,5 @@ public class Func {
             System.out.println("다시 입력");
             input();
         }
-        /*finally {
-            System.out.println("Program finished");
-        }*/
     }
 }

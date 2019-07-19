@@ -17,7 +17,7 @@ public class Queen extends Piece{
 
         if(Math.abs(super.row - row) == Math.abs(super.col - col))
         {
-            if(super.isValid(board, super.row, row, super.col, col) == true)
+            if(super.isValid(super.row, row, super.col, col) == true)
             {
                 board.pieceset(row, col, this);
                 board.pieceset(super.row, super.col, null);
@@ -29,9 +29,9 @@ public class Queen extends Piece{
 
         for(int i = 1;i < 10; i++)
         {
+
             if((row == super.row + i) && (col == super.col)) {
-                if(super.isValid(board, super.row, row, super.col, col) == true)
-                {
+                if(super.isValid(super.row, row, super.col, col) == true) {
                     board.pieceset(row, col, this);
                     board.pieceset(super.row, super.col, null);
                     super.row = row;
@@ -44,7 +44,7 @@ public class Queen extends Piece{
         for(int i = 1;i < 10; i++)
         {
             if((row == super.row - i) && (col == super.col)) {
-                if(super.isValid(board, super.row, row, super.col, col) == true)
+                if(super.isValid(super.row, row, super.col, col) == true)
                 {
                     board.pieceset(row, col, this);
                     board.pieceset(super.row, super.col, null);
@@ -58,7 +58,7 @@ public class Queen extends Piece{
         for(int i = 1;i < 10; i++)
         {
             if((row == super.row) && (col == super.col + i)) {
-                if(super.isValid(board, super.row, row, super.col, col) == true)
+                if(super.isValid(super.row, row, super.col, col) == true)
                 {
                     board.pieceset(row, col, this);
                     board.pieceset(super.row, super.col, null);
@@ -72,7 +72,7 @@ public class Queen extends Piece{
         for(int i = 1;i < 10; i++)
         {
             if((row == super.row) && (col == super.col - i)) {
-                if(super.isValid(board, super.row, row, super.col, col) == true)
+                if(super.isValid(super.row, row, super.col, col) == true)
                 {
                     board.pieceset(row, col, this);
                     board.pieceset(super.row, super.col, null);
