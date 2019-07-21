@@ -7,9 +7,9 @@ public class main {
         Board board = new Board();
 
         while(true){
-            System.out.println("1. 체스 말 생성");
-            System.out.println("2. 체스 말 랜덤");
-            System.out.println("3. 체스 말 삭제");
+            System.out.println("1. 체스말 생성");
+            System.out.println("2. 체스말 랜덤");
+            System.out.println("3. 체스말 삭제");
             System.out.println("4. 체스판 보기");
             System.out.println("5. 말 이동");
             System.out.println("6. 종료");
@@ -42,9 +42,6 @@ public class main {
                     System.exit(0);
                     break;
             }
-
         }
-
     }
-
 }

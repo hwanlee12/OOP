@@ -10,11 +10,6 @@ public class Board {
         board = new Piece[10][10];
     }
 
-    public Piece[][] getBoard()
-    {
-        return board;
-    }
-
     public Piece position(int row, int col) {
         return board[row][col];
     }
@@ -54,6 +49,7 @@ public class Board {
         board[9][8] = new Rook(9,8,false,"R");
         board[9][9] = new Pawn(9,9,false,"P");
         printBoard();
+        System.out.println("====================================");
     }
 
     // 2
@@ -188,11 +184,13 @@ public class Board {
             }
         }
         printBoard();
+        System.out.println("====================================");
     }
 
     // 3
     public void delPiece(){
         printBoard();
+        System.out.println("====================================");
         Scanner in = new Scanner(System.in);
         String target;
         String sub1, sub2;
@@ -211,15 +209,14 @@ public class Board {
             col = col - 97;
 
         targetPiece = position(row, col);
-        if(targetPiece != null)
-        {
+        if(targetPiece != null) {
             board[row][col] = null;
         }
-        else
-        {
+        else {
             System.out.println("no pieces\n");
         }
         printBoard();
+        System.out.println("====================================");
     }
 
     // 4
@@ -250,6 +247,7 @@ public class Board {
     // 5
     public void movePiece() {
         printBoard();
+        System.out.println("====================================");
         Scanner in = new Scanner(System.in);
         String target;
         String sub1, sub2;
@@ -275,12 +273,34 @@ public class Board {
         row = Integer.parseInt(sub2);
         row = Math.abs(row - 10);
         char temp_col2[] = sub1.toCharArray();
-        col = (int)temp_col[0];
+        col = (int)temp_col2[0];
         if(col <= 74 && col >= 65)
             col = col - 65;
         else if( col >= 97 && col <= 106)
             col = col - 97;
         targetPiece.Moveto(row, col, this);
         printBoard();
+        System.out.println("====================================");
+    }
+
+    // 행마 입력
+    public int moveInputrow(String target) {
+        String sub1 = target.substring(0,1);
+        char temp_col[] = sub1.toCharArray();
+        int col = (int)temp_col[0];
+        if(col <= 74 && col >= 65)
+            col = col - 65;
+        else if( col >= 97 && col <= 106)
+            col = col - 97;
+        System.out.println(col);
+        return col;
+    }
+
+    public int moveInputcol(String target) {
+        String sub2 = target.substring(1);
+        int row = Integer.parseInt(sub2);
+        row = Math.abs(row - 10);
+        System.out.println(row);
+        return row;
     }
 }

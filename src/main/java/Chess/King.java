@@ -1,127 +1,87 @@
 package Chess;
 
 public class King extends Piece{
-    public King(int row, int col, boolean color, String type)
-    {
+    public King(int row, int col, boolean color, String type) {
         super(row, col, color, type);
     }
 
     @Override
-    public void Moveto(int row, int col, Board board)
-    {
-        if(board.position(row, col) != null && board.position(row, col).color == color)
-        {
-            System.out.println("can't move\n");
-            return;
-        }
+    public boolean Moveable(int row, int col, Board board) {
+        if(board.position(row, col) != null
+                && board.position(row, col).color == color
+                && super.isValid(super.row, row, super.col, col) == false)
+            return false;
 
-        if(this.color == true)
-        {
-            if(row == super.row +1 && (col == super.col || col == super.col + 1 || col == super.col -1)) {
-                if(super.isValid(super.row, row, super.col, col) == true) {
-                    board.pieceset(row, col, this);
-                    board.pieceset(super.row, super.col, null);
-                    super.row = row;
-                    super.col = col;
-                    return;
-                }
-            }
-            if(row == super.row && (col == super.col -1 || col == super.col + 1)) {
-                if(super.isValid(super.row, row, super.col, col) == true) {
-                    board.pieceset(row, col, this);
-                    board.pieceset(super.row, super.col, null);
-                    super.row = row;
-                    super.col = col;
-                    return;
-                }
-            }
-            for(int i = 1;i < 10; ++i){
-                if(row == super.row - i && col == super.col) {
-                    if(super.isValid(super.row, row, super.col, col) == true) {
-                        board.pieceset(row, col, this);
-                        board.pieceset(super.row, super.col, null);
-                        super.row = row;
-                        super.col = col;
-                        return;
+        if(this.color == true) {
+            if(col == super.col) {
+                if(row > super.row) {
+                    for(int i = 1; i < row - super.row; i++) {
+                        if(board.position(super.row + i, super.col) != null)
+                            return false;
                     }
                 }
-            }
-            for(int i = 1;i < 10; ++i){
-                if(row == super.row - i && col == super.col - i) {
-                    if(super.isValid(super.row, row, super.col, col) == true) {
-                        board.pieceset(row, col, this);
-                        board.pieceset(super.row, super.col, null);
-                        super.row = row;
-                        super.col = col;
-                        return;
-                    }
+                else if(row < super.row) {
+                    if(super.row - row == 1)
+                        return true;
+                    else
+                        return false;
                 }
             }
-            for(int i = 1;i < 10; ++i){
-                if(row == super.row - i && col == super.col + i) {
-                    if(super.isValid(super.row, row, super.col, col) == true) {
-                        board.pieceset(row, col, this);
-                        board.pieceset(super.row, super.col, null);
-                        super.row = row;
-                        super.col = col;
-                        return;
+            else if(Math.abs(row - super.row) == Math.abs(col - super.col)) {
+                if(row > super.row && col > super.col) {
+                    for(int i = 1; i < row - super.row; i++) {
+                        if(board.position(super.row + i, super.col + i) != null)
+                            return false;
                     }
                 }
+                else if(row > super.row && col < super.col) {
+                    for(int i = 1; i < row - super.row; i++) {
+                        if(board.position(super.row + i, super.col - i) != null)
+                            return false;
+                    }
+                }
+                else if((Math.abs(row - super.row) + Math.abs(col - super.col) == 2)) {
+                    return true;
+                }
+                else
+                    return false;
             }
-            return;
         }
-        else
-        {
-            if(row == super.row - 1 && (col == super.col || col == super.col + 1 || col == super.col -1)) {
-                if(super.isValid(super.row, row, super.col, col) == true) {
-                    board.pieceset(row, col, this);
-                    board.pieceset(super.row, super.col, null);
-                    super.row = row;
-                    super.col = col;
-                    return;
-                }
-            }
-            if(row == super.row && (col == super.col -1 || col == super.col + 1)) {
-                board.pieceset(row, col, this);
-                board.pieceset(super.row, super.col , null);
-                super.row = row;
-                super.col = col;
-                return;
-            }
-            for(int i = 1;i < 10; ++i){
-                if(row == super.row + i && col == super.col) {
-                    if(super.isValid(super.row, row, super.col, col) == true) {
-                        board.pieceset(row, col, this);
-                        board.pieceset(super.row, super.col, null);
-                        super.row = row;
-                        super.col = col;
-                        return;
+        else {
+            if(col == super.col) {
+                if(row < super.row) {
+                    for(int i = 1; i < super.row - row; i++) {
+                        if(board.position(super.row - i, super.col) != null)
+                            return false;
                     }
                 }
-            }
-            for(int i = 1;i < 10; ++i){
-                if(row == super.row + i && col == super.col - i) {
-                    if(super.isValid(super.row, row, super.col, col) == true) {
-                        board.pieceset(row, col, this);
-                        board.pieceset(super.row, super.col, null);
-                        super.row = row;
-                        super.col = col;
-                        return;
-                    }
+                else if(row > super.row) {
+                    if(row - super.row == 1)
+                        return true;
+                    else
+                        return false;
                 }
             }
-            for(int i = 1;i < 10; ++i){
-                if(row == super.row + i && col == super.col + i) {
-                    if(super.isValid(super.row, row, super.col, col) == true) {
-                        board.pieceset(row, col, this);
-                        board.pieceset(super.row, super.col, null);
-                        super.row = row;
-                        super.col = col;
-                        return;
+            else if(Math.abs(row - super.row) == Math.abs(col - super.col)) {
+                if(row < super.row && col > super.col) {
+                    for(int i = 1; i < super.row - row; i++) {
+                        if(board.position(super.row - i, super.col + i) != null)
+                            return false;
                     }
                 }
+                else if(row < super.row && col < super.col) {
+                    for(int i = 1; i < super.row - row; i++) {
+                        if(board.position(super.row - i, super.col - i) != null)
+                            return false;
+                    }
+                }
+                else if((Math.abs(row - super.row) + Math.abs(col - super.col) == 2)) {
+                    return true;
+                }
+                else
+                    return false;
             }
-            return;
         }
+        return true;
     }
 }
