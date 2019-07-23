@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a3819c65-cb5e-491c-b7ac-b7c3c4314426" name="Default Changelist" comment="chess">
+    <list default="true" id="a3819c65-cb5e-491c-b7ac-b7c3c4314426" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/azureSettings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mssql_jdbc_7_2_2_jre8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/week12/main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Chess/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Bishop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Chess/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Chess/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/King.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Chess/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Knight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Chess/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Chess/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Chess/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Queen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Chess/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Rook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Chess/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -25,102 +19,14 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Chess/main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Chess/Pawn.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" column="62" selection-start-line="3" selection-start-column="62" selection-end-line="3" selection-end-column="62" />
-              <folding>
-                <element signature="e#160#161#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Chess/Queen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" column="63" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
-              <folding>
-                <element signature="e#161#162#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Chess/Rook.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/week12/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" column="80" lean-forward="true" selection-start-line="13" selection-start-column="80" selection-end-line="13" selection-end-column="80" />
+            <state relative-caret-position="209">
+              <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
               <folding>
-                <element signature="e#114#115#0" expanded="true" />
-                <element signature="e#158#159#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Chess/Bishop.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" column="63" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
-              <folding>
-                <element signature="e#162#163#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Chess/Knight.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding>
-                <element signature="e#120#121#0" expanded="true" />
-                <element signature="e#164#165#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Chess/King.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" column="62" selection-start-line="3" selection-start-column="62" selection-end-line="3" selection-end-column="62" />
-              <folding>
-                <element signature="e#159#160#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Chess/Board.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4047">
-              <caret line="214" column="13" selection-start-line="214" selection-start-column="13" selection-end-line="214" selection-end-column="13" />
-              <folding>
-                <element signature="e#143#144#0" expanded="true" />
-                <element signature="e#184#185#0" expanded="true" />
-                <element signature="e#231#232#0" expanded="true" />
-                <element signature="e#269#270#0" expanded="true" />
-                <element signature="e#329#330#0" expanded="true" />
-                <element signature="e#368#369#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -169,16 +75,18 @@
         <option value="$PROJECT_DIR$/src/main/java/Chess/main.java" />
         <option value="$PROJECT_DIR$/src/main/java/Chess/Knight.java" />
         <option value="$PROJECT_DIR$/src/main/java/Chess/King.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Chess/Board.java" />
         <option value="$PROJECT_DIR$/src/main/java/Chess/Bishop.java" />
         <option value="$PROJECT_DIR$/src/main/java/Chess/Pawn.java" />
         <option value="$PROJECT_DIR$/src/main/java/Chess/Queen.java" />
         <option value="$PROJECT_DIR$/src/main/java/Chess/Rook.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Chess/Board.java" />
+        <option value="$PROJECT_DIR$/src/main/java/week12/main.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="953" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -188,6 +96,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -219,24 +128,27 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Chess" type="462c0819:PsiDirectoryNode" />
+              <item name="week12" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OOP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="C:/Program Files/Java/jdk1.8.0_192/jre/lib/ext/mssql-jdbc-7.2.2.jre11.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -250,7 +162,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.main">
+  <component name="RunManager" selected="Application.main (2)">
     <configuration name="main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="week4.main" />
       <module name="OOP" />
@@ -264,12 +176,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="main (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="week6.main" />
+    <configuration name="main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="week12.main" />
       <module name="OOP" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="week6.*" />
+          <option name="PATTERN" value="week12.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -318,11 +230,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.main (2)" />
         <item itemvalue="Application.main" />
         <item itemvalue="Application.test" />
         <item itemvalue="Application.main (1)" />
         <item itemvalue="Application.main (4)" />
-        <item itemvalue="Application.main (3)" />
       </list>
     </recent_temporary>
   </component>
@@ -435,7 +347,21 @@
       <option name="project" value="LOCAL" />
       <updated>1563509328337</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="chess">
+      <created>1563753365585</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1563753365585</updated>
+    </task>
+    <task id="LOCAL-00016" summary="week10">
+      <created>1563753448044</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1563753448044</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView">
@@ -451,16 +377,21 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11353944" />
+      <window_info id="Azure Explorer" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11567164" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Remote Spark Job in Cluster" />
+      <window_info anchor="bottom" id="Cosmos Serverless Spark Jobs" />
+      <window_info anchor="bottom" id="Debug Remote Spark Job in Cluster" />
+      <window_info anchor="bottom" id="Azure Activity Log" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.38286334" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37852496" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -468,7 +399,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.329718" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32858709" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.329718" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3264642" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.324295" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -527,11 +458,10 @@
     <MESSAGE value="week6" />
     <MESSAGE value="week8" />
     <MESSAGE value="chess" />
-    <option name="LAST_COMMIT_MESSAGE" value="chess" />
+    <MESSAGE value="week10" />
+    <option name="LAST_COMMIT_MESSAGE" value="week10" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Downloads/Lab5_201520891/src/lab5/VideoContent.java" />
-    <entry file="file://$USER_HOME$/Downloads/Lab5_201520891/src/lab5/Netflix.java" />
     <entry file="file://$USER_HOME$/Downloads/Lab5_201520891/src/lab5/TestDriver.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/week5/VideoContent.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -712,52 +642,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Chess/Bishop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="63" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
-          <folding>
-            <element signature="e#162#163#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Chess/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4047">
-          <caret line="214" column="13" selection-start-line="214" selection-start-column="13" selection-end-line="214" selection-end-column="13" />
-          <folding>
-            <element signature="e#143#144#0" expanded="true" />
-            <element signature="e#184#185#0" expanded="true" />
-            <element signature="e#231#232#0" expanded="true" />
-            <element signature="e#269#270#0" expanded="true" />
-            <element signature="e#329#330#0" expanded="true" />
-            <element signature="e#368#369#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Chess/King.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="62" selection-start-line="3" selection-start-column="62" selection-end-line="3" selection-end-column="62" />
-          <folding>
-            <element signature="e#159#160#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Chess/Knight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="e#120#121#0" expanded="true" />
-            <element signature="e#164#165#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Chess/main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -787,11 +671,74 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Chess/Rook.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="80" lean-forward="true" selection-start-line="13" selection-start-column="80" selection-end-line="13" selection-end-column="80" />
+        <state relative-caret-position="361">
+          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
           <folding>
             <element signature="e#114#115#0" expanded="true" />
             <element signature="e#158#159#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Chess/Bishop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="63" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
+          <folding>
+            <element signature="e#162#163#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Chess/Knight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="e#120#121#0" expanded="true" />
+            <element signature="e#164#165#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Chess/King.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="62" selection-start-line="3" selection-start-column="62" selection-end-line="3" selection-end-column="62" />
+          <folding>
+            <element signature="e#159#160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/week10/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Chess/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="292" column="41" lean-forward="true" selection-start-line="292" selection-start-column="41" selection-end-line="292" selection-end-column="41" />
+          <folding>
+            <element signature="e#143#144#0" expanded="true" />
+            <element signature="e#184#185#0" expanded="true" />
+            <element signature="e#231#232#0" expanded="true" />
+            <element signature="e#269#270#0" expanded="true" />
+            <element signature="e#329#330#0" expanded="true" />
+            <element signature="e#368#369#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/week12/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -813,6 +760,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
+          <last-edited>No facets are configured</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -835,6 +783,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
+          <last-edited>12</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -851,7 +800,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -859,6 +807,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>mssql-jdbc-7.2.2.jre8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
