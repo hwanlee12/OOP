@@ -33,8 +33,7 @@ public class main {
         }
 
         Scanner in = new Scanner(System.in);
-        switch(select)
-        {
+        switch(select) {
             case 1:
                 try {
                     Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -48,24 +47,13 @@ public class main {
                     Password = in.nextLine();
 
                     while( rs.next() ) {
-                        String field1 = rs.getString("ID");
-                        String field2 = rs.getString("Password");
-
-                        System.out.println(field1);
-                        System.out.println(field2);
-
-                        System.out.println(ID);
-                        System.out.println(Password);
-
-
-
-                        if(field1.equals(ID))
-                        {
-                            System.out.println("sgfsdfsdfsdf");
-                            break;
+                        String field1 = rs.getString("ID").trim();
+                        String field2 = rs.getString("Password").trim();
+                        if(field1.equals(ID) && field2.equals(Password)) {
+                            System.out.println("login success");
                         }
-
-
+                        else
+                            continue;
                     }
                     rs.close();
                     stmt.close();
@@ -77,10 +65,28 @@ public class main {
                 break;
 
             case 2:
+                try {
+                    Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                    String connectionUrl = "jdbc:sqlserver://192.168.120.19:1433;" +
+                            "databaseName=pratice_j;user=testj;password=12345;";
+                    Connection con = DriverManager.getConnection(connectionUrl);
+                    Statement stmt = con.createStatement();
+
+                    ID = in.nextLine();
+                    Password = in.nextLine();
+
+                    String sql = "insert into member(ID, Password)";
+                    sql += " VALUES(" + "'"+ID+"', '"+Password+"')";
+                    stmt.executeUpdate(sql);
+
+                    stmt.close();
+                    con.close();
+                }
+                catch (SQLException sqle) {
+                    System.out.println("SQLException : " + sqle);
+                }
 
                 break;
         }
-
-
     }
 }
