@@ -1,7 +1,5 @@
 package Board;
 
-import org.w3c.dom.Text;
-
 import java.sql.*;
 import java.util.Scanner;
 import java.io.File;
