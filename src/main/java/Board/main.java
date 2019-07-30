@@ -5,7 +5,8 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 public class main {
     public static void main(String args[]) throws ClassNotFoundException
@@ -138,5 +139,58 @@ public class main {
         catch (SQLException sqle) {
             System.out.println("SQLException : " + sqle);
         }
+
+        // db 글 출력
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            String connectionUrl = "jdbc:sqlserver://192.168.120.19:1433;" +
+                    "databaseName=pratice_j;user=testj;password=12345;";
+            Connection con = DriverManager.getConnection(connectionUrl);
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from n_board");
+
+            String user_id;
+            user_id = ID;
+            String title;
+            title = in.nextLine();
+
+            while(rs.next()) {
+                //String field1 = rs.getString("ID").trim();
+                String field2 = rs.getString("title").trim();
+                String field3 = rs.getString("contents").trim();
+                if(field2.equals(title)) {
+                    BufferedReader bReader = null;
+
+                    try {
+                        String s;
+                        File file = new File(field3);
+                        bReader = new BufferedReader(new FileReader(file));
+
+                        while((s = bReader.readLine()) != null) {
+                            System.out.println(s);
+                        }
+                    } catch(IOException e) {
+                        e.printStackTrace();
+                    } finally {
+                        try {
+                            if(bReader != null) bReader.close();
+                        } catch(IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                else
+                    continue;
+            }
+
+            rs.close();
+            stmt.close();
+            con.close();
+
+        } catch (SQLException sqle) {
+            System.out.println("SQLException : " + sqle);
+        }
+
+
     }
 }
