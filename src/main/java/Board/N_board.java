@@ -72,18 +72,16 @@ public class N_board {
             Connection con = DriverManager.getConnection(connectionUrl);
             Statement stmt = con.createStatement();
 
-            String title;
             System.out.println("삭제할 제목 입력");
             System.out.print(">>");
-            title = in.nextLine();
+            String title = in.nextLine();
 
-            ResultSet rs = stmt.executeQuery("select * from Board where" +title);
+            ResultSet rs = stmt.executeQuery("select Title, User_ID from Board");
             while(rs.next()) {
                 String field1 = rs.getString("Title").trim();
                 String field2 = rs.getString("User_ID").trim();
                 if(field1.equals(title) && field2.equals(ID)) {
-                    String sql = "delete from Board WHERE";
-                    sql += "Title=" +title;
+                    String sql = "delete from Board WHERE Title="+"'"+title+"'";
                     stmt.executeUpdate(sql);
                     delete = 1;
                 }

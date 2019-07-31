@@ -46,6 +46,7 @@ public class Login {
 
     public int select_login(String ID) throws ClassNotFoundException{
         N_board board = new N_board();
+        board.prtBoard();
         int select = 0;
         System.out.printf("사용자 : %s\n", ID);
         System.out.println("1. 글 작성");
@@ -70,6 +71,7 @@ public class Login {
                 else if(select == 2) {
                     board.prtBoard();
                     board.delBoard(ID);
+                    break;
                 }
                 else if(select == 3) {
                     System.out.println("로그아웃");

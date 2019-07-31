@@ -17,9 +17,12 @@ public class main {
                         System.out.println("Login Error");
                         break;
                     }
-                    after_login = menu.login.select_login(ID);
-                    if(after_login == 3)
-                        break;
+
+                    while(true) {
+                        after_login = menu.login.select_login(ID);
+                        if(after_login == 3)
+                            break;
+                    }
 
                 case 2: // 회원가입
                     menu.join.join();
