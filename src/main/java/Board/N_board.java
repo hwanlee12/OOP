@@ -2,6 +2,9 @@ package Board;
 
 import java.sql.*;
 import java.util.Scanner;
+import java.util.Calendar;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class N_board {
     public void prtBoard() throws ClassNotFoundException {
@@ -32,6 +35,8 @@ public class N_board {
 
     public void wrtBoard(String ID) throws ClassNotFoundException {
         Scanner in = new Scanner(System.in);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Calendar cal = Calendar.getInstance();
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             String connectionUrl = "jdbc:sqlserver://192.168.120.19:1433;" +
@@ -45,8 +50,8 @@ public class N_board {
 
             String message = "아 집가고 싶다......\n";
 
-            String sql = "insert into Board(User_ID, Title, Date, Contents)";
-            sql += " VALUES("+"'"+ID+"','"+title+"','"+"getdate()"+message+"')";
+            String sql = "insert into Board([User_ID], [Title], [Date], [Contents])";
+            sql += " VALUES("+"'"+ID+"','"+title+"','"+ dateFormat.format(cal.getTime())+"','" +message+"')";
             stmt.executeUpdate(sql);
 
             stmt.close();
