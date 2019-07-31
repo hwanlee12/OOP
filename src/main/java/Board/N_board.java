@@ -3,7 +3,6 @@ package Board;
 import java.sql.*;
 import java.util.Scanner;
 import java.util.Calendar;
-import java.util.Date;
 import java.text.SimpleDateFormat;
 
 public class N_board {
@@ -84,6 +83,7 @@ public class N_board {
                     String sql = "delete from Board WHERE Title="+"'"+title+"'";
                     stmt.executeUpdate(sql);
                     delete = 1;
+                    break;
                 }
                 else
                     continue;

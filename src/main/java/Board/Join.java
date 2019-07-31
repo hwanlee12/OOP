@@ -23,7 +23,7 @@ public class Join {
             System.out.print("Password >> ");
             Password = in.nextLine();
 
-            ResultSet rs = stmt.executeQuery("select * from Board where User_ID");
+            ResultSet rs = stmt.executeQuery("select User_ID from Board");
             while(rs.next()) {
                 String field_ID = rs.getString("User_ID");
                 if(field_ID.equals(ID)) {

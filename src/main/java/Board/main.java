@@ -9,7 +9,7 @@ public class main {
 
         while(true) {
             int select = menu.menu_select();
-            int after_login;
+            int after_login = 0;
             switch(select) {
                 case 1: // 로그인
                     ID = menu.login.login();
@@ -21,7 +21,10 @@ public class main {
                     while(true) {
                         after_login = menu.login.select_login(ID);
                         if(after_login == 3)
+                        {
+                            System.out.println("dlksfdlsfdlf");
                             break;
+                        }
                     }
 
                 case 2: // 회원가입
