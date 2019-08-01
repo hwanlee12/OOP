@@ -44,7 +44,8 @@ public class Login {
         System.out.printf("사용자 : %s\n", ID);
         System.out.println("1. 글 작성");
         System.out.println("2. 글 삭제");
-        System.out.println("3. 로그아웃");
+        System.out.println("3. 글 보기");
+        System.out.println("4. 로그아웃");
         System.out.print(">>");
 
         while(true) {
@@ -67,10 +68,14 @@ public class Login {
                     break;
                 }
                 else if(select == 3) {
+                    board.show_contents(con);
+                    break;
+                }
+                else if(select == 4) {
                     System.out.println("로그아웃");
                     break;
                 }
-                else if(select != 1 || select != 2 || select != 3) {
+                else if(select != 1 || select != 2 || select != 3 || select != 4) {
                     System.out.println("재입력");
                 }
             }

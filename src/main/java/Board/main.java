@@ -27,7 +27,7 @@ public class main {
 
                         while (true) {
                             after_login = menu.login.select_login(ID, con);
-                            if (after_login == 3) {
+                            if (after_login == 4) {
                                 break;
                             }
                         }
