@@ -27,7 +27,7 @@ public class N_board {
         }
     }
 
-    public void wrtBoard(String ID, Connection con){
+    public void wrtBoard(String ID, Connection con) {
         Scanner in = new Scanner(System.in);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Calendar cal = Calendar.getInstance();
@@ -49,35 +49,27 @@ public class N_board {
         }
     }
 
-    public void show_contents(Connection con)
-    {
+    public void show_contents(Connection con) {
         Scanner in = new Scanner(System.in);
         String title;
-
         System.out.println("제목 입력");
         System.out.print(">>");
         title = in.nextLine();
-
-        try
-        {
+        try {
             PreparedStatement pstmt = con.prepareStatement("select * from Board where Title=?");
-            pstmt.setString(1,title);
+            pstmt.setString(1, title);
             ResultSet rs = pstmt.executeQuery();
-
-            while(rs.next())
-            {
+            while (rs.next()) {
                 String field1 = rs.getString("Title").trim();
                 String field2 = rs.getString("Contents").trim();
-                if(field1.equals(title)) {
+                if (field1.equals(title)) {
                     System.out.println(field2);
                     break;
                 }
             }
-        }
-        catch(SQLException sqle) {
+        } catch (SQLException sqle) {
             System.out.println("SQLException : " + sqle);
         }
-
     }
 
     public void delBoard(String ID, Connection con) {

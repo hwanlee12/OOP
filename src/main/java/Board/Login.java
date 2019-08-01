@@ -37,7 +37,7 @@ public class Login {
         return "Login Error";
     }
 
-    public int select_login(String ID, Connection con) throws ClassNotFoundException{
+    public int select_login(String ID, Connection con) {
         N_board board = new N_board();
         board.prtBoard(con);
         int select = 0;
