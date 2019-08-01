@@ -5,44 +5,39 @@ import java.util.Scanner;
 import java.security.NoSuchAlgorithmException;
 
 public class Join {
-    public void join()  throws ClassNotFoundException, NoSuchAlgorithmException{
+    public void join(Connection con)  throws NoSuchAlgorithmException{
         String ID, Password;
         int permit = 1;
         MD5 md5 = new MD5();
         Scanner in = new Scanner(System.in);
         try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String connectionUrl = "jdbc:sqlserver://192.168.120.19:1433;" +
-                    "databaseName=pratice_j;user=testj;password=12345;";
-            Connection con = DriverManager.getConnection(connectionUrl);
-            Statement stmt = con.createStatement();
-
             System.out.println("===============Join===============");
             System.out.print("ID >> ");
             ID = in.nextLine();
             System.out.print("Password >> ");
             Password = in.nextLine();
-
-            ResultSet rs = stmt.executeQuery("select User_ID from Board");
+            PreparedStatement pstmt = con.prepareStatement("select * from member where ID=?");
+            pstmt.setString(1,ID);
+            ResultSet rs = pstmt.executeQuery();
             while(rs.next()) {
-                String field_ID = rs.getString("User_ID");
+                String field_ID = rs.getString("ID");
                 if(field_ID.equals(ID)) {
+                    System.out.println(field_ID);
                     permit = 0;
                 }
             }
-
             if(permit == 1) {
-                String sql = "insert into member(ID, Password)";
-                sql += " VALUES(" + "'"+ID+"', '"+md5.testMD5(Password)+"')";
-                stmt.executeUpdate(sql);
+                PreparedStatement pstmt_in = con.prepareStatement("insert into member(ID, Password) values(?, ?)");
+                pstmt_in.setString(1,ID);
+                pstmt_in.setString(2,md5.testMD5(Password));
+                pstmt_in.executeUpdate();
                 System.out.println("Join success");
             }
             else {
                 System.out.println("중복된 ID");
             }
-
-            stmt.close();
-            con.close();
+            rs.close();
+            pstmt.close();
         }
         catch (SQLException sqle) {
             System.out.println("SQLException : " + sqle);

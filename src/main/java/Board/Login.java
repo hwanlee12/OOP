@@ -5,26 +5,21 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class Login {
-    public String login () throws ClassNotFoundException, NoSuchAlgorithmException {
+    public String login (Connection con) throws NoSuchAlgorithmException {
         Scanner in = new Scanner(System.in);
         MD5 md5 = new MD5();
 
-        String ID;
-        String Password;
+        String ID, Password;
         try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String connectionUrl = "jdbc:sqlserver://192.168.120.19:1433;" +
-                    "databaseName=pratice_j;user=testj;password=12345;";
-            Connection con = DriverManager.getConnection(connectionUrl);
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from member");
-
             System.out.println("===============Login===============");
             System.out.print("ID >> ");
             ID = in.nextLine();
             System.out.print("Password >> ");
             Password = in.nextLine();
-
+            PreparedStatement pstmt = con.prepareStatement("select * from member where ID=? and Password=?");
+            pstmt.setString(1,ID);
+            pstmt.setString(2,md5.testMD5(Password));
+            ResultSet rs = pstmt.executeQuery();
             while(rs.next()) {
                 String field1 = rs.getString("ID").trim();
                 String field2 = rs.getString("Password").trim();
@@ -36,17 +31,15 @@ public class Login {
                     continue;
             }
             rs.close();
-            stmt.close();
-            con.close();
         } catch (SQLException sqle) {
             System.out.println("SQLException : " + sqle);
         }
         return "Login Error";
     }
 
-    public int select_login(String ID) throws ClassNotFoundException{
+    public int select_login(String ID, Connection con) throws ClassNotFoundException{
         N_board board = new N_board();
-        board.prtBoard();
+        board.prtBoard(con);
         int select = 0;
         System.out.printf("사용자 : %s\n", ID);
         System.out.println("1. 글 작성");
@@ -64,13 +57,13 @@ public class Login {
             }
             finally {
                 if(select == 1) {
-                    board.prtBoard();
-                    board.wrtBoard(ID);
+                    board.prtBoard(con);
+                    board.wrtBoard(ID, con);
                     break;
                 }
                 else if(select == 2) {
-                    board.prtBoard();
-                    board.delBoard(ID);
+                    board.prtBoard(con);
+                    board.delBoard(ID, con);
                     break;
                 }
                 else if(select == 3) {

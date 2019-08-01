@@ -6,12 +6,8 @@ import java.util.Calendar;
 import java.text.SimpleDateFormat;
 
 public class N_board {
-    public void prtBoard() throws ClassNotFoundException {
+    public void prtBoard(Connection con) {
         try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String connectionUrl = "jdbc:sqlserver://192.168.120.19:1433;" +
-                    "databaseName=pratice_j;user=testj;password=12345;";
-            Connection con = DriverManager.getConnection(connectionUrl);
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("select * from Board");
             while(rs.next()) {
@@ -26,23 +22,17 @@ public class N_board {
             }
             rs.close();
             stmt.close();
-            con.close();
         } catch (SQLException sqle) {
             System.out.println("SQLException : " + sqle);
         }
     }
 
-    public void wrtBoard(String ID) throws ClassNotFoundException {
+    public void wrtBoard(String ID, Connection con){
         Scanner in = new Scanner(System.in);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Calendar cal = Calendar.getInstance();
         try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String connectionUrl = "jdbc:sqlserver://192.168.120.19:1433;" +
-                    "databaseName=pratice_j;user=testj;password=12345;";
-            Connection con = DriverManager.getConnection(connectionUrl);
             Statement stmt = con.createStatement();
-
             String title;
             System.out.println("제목 입력");
             title = in.nextLine();
@@ -52,29 +42,21 @@ public class N_board {
             String sql = "insert into Board([User_ID], [Title], [Date], [Contents])";
             sql += " VALUES("+"'"+ID+"','"+title+"','"+ dateFormat.format(cal.getTime())+"','" +message+"')";
             stmt.executeUpdate(sql);
-
             stmt.close();
-            con.close();
         }
         catch (SQLException sqle) {
             System.out.println("SQLException : " + sqle);
         }
     }
 
-    public void delBoard(String ID) throws ClassNotFoundException {
+    public void delBoard(String ID, Connection con) {
         Scanner in = new Scanner(System.in);
         int delete = 0;
         try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String connectionUrl = "jdbc:sqlserver://192.168.120.19:1433;" +
-                    "databaseName=pratice_j;user=testj;password=12345;";
-            Connection con = DriverManager.getConnection(connectionUrl);
             Statement stmt = con.createStatement();
-
             System.out.println("삭제할 제목 입력");
             System.out.print(">>");
             String title = in.nextLine();
-
             ResultSet rs = stmt.executeQuery("select Title, User_ID from Board");
             while(rs.next()) {
                 String field1 = rs.getString("Title").trim();
@@ -95,9 +77,7 @@ public class N_board {
             else {
                 System.out.println("글쓴이외 삭제 불가");
             }
-
             stmt.close();
-            con.close();
         }
         catch (SQLException sqle) {
             System.out.println("SQLException : " + sqle);
