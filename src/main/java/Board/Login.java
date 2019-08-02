@@ -15,15 +15,19 @@ public class Login {
             ID = in.nextLine();
             System.out.print("Password >> ");
             Password = in.nextLine();
-            PreparedStatement pstmt = con.prepareStatement("select * from member where ID=? and Password=?");
+
+            PreparedStatement pstmt = con.prepareStatement("select user_lv.level, member.ID, member.Password " +
+                    "from member inner join user_lv on member.ID = user_lv.ID where member.ID=?");
             pstmt.setString(1,ID);
-            pstmt.setString(2,md5.testMD5(Password));
+
             ResultSet rs = pstmt.executeQuery();
             while(rs.next()) {
                 String field1 = rs.getString("ID").trim();
                 String field2 = rs.getString("Password").trim();
+                int level = rs.getInt("Level");
                 if(field1.equals(ID) && field2.equals(md5.testMD5(Password))) {
                     System.out.println("login success");
+                    System.out.printf("User level is %d\n", level);
                     return ID;
                 }
                 else
