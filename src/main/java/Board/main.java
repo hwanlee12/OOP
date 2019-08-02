@@ -1,12 +1,11 @@
 package Board;
 
-import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class main {
-    public static void main(String args[]) throws ClassNotFoundException, NoSuchAlgorithmException {
+    public static void main(String args[]) throws ClassNotFoundException{
         String ID;
         Menu menu = new Menu();
         try{
