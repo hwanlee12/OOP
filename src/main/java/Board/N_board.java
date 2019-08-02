@@ -97,10 +97,18 @@ public class N_board {
                 String field1 = rs.getString("Title").trim();
                 String field2 = rs.getString("User_ID").trim();
                 if(field1.equals(title) && field2.equals(ID)) {
-                    String sql = "delete from Board WHERE Title="+"'"+title+"'";
-                    stmt.executeUpdate(sql);
-                    delete = 1;
-                    break;
+                    System.out.println("삭제 하시겠습니까? Y/N");
+                    System.out.print(">> ");
+                    String yn = in.nextLine();
+                    if(yn.equals("y") || yn.equals("Y")) {
+                        String sql = "delete from Board WHERE Title="+"'"+title+"'";
+                        stmt.executeUpdate(sql);
+                        delete = 1;
+                        break;
+                    }
+                    else {
+                        break;
+                    }
                 }
                 else
                     continue;
