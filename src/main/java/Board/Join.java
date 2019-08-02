@@ -2,10 +2,9 @@ package Board;
 
 import java.sql.*;
 import java.util.Scanner;
-import java.security.NoSuchAlgorithmException;
 
 public class Join {
-    public void join(Connection con)  throws NoSuchAlgorithmException{
+    public void join(Connection con) {
         String ID, Password;
         int permit = 1;
         MD5 md5 = new MD5();

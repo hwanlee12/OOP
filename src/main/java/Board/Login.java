@@ -1,11 +1,10 @@
 package Board;
 
-import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.Scanner;
 
 public class Login {
-    public String login (Connection con) throws NoSuchAlgorithmException {
+    public String login (Connection con) {
         Scanner in = new Scanner(System.in);
         MD5 md5 = new MD5();
 
