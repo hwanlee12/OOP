@@ -19,7 +19,6 @@ public class Login {
             PreparedStatement pstmt = con.prepareStatement("select user_lv.level, member.ID, member.Password " +
                     "from member inner join user_lv on member.ID = user_lv.ID where member.ID=?");
             pstmt.setString(1,ID);
-
             ResultSet rs = pstmt.executeQuery();
             while(rs.next()) {
                 String field1 = rs.getString("ID").trim();

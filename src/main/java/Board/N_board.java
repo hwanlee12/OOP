@@ -88,15 +88,21 @@ public class N_board {
         Scanner in = new Scanner(System.in);
         int delete = 0;
         try {
-            Statement stmt = con.createStatement();
             System.out.println("삭제할 제목 입력");
             System.out.print(">>");
             String title = in.nextLine();
+            Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("select Title, User_ID from Board");
+
+            PreparedStatement pstmt = con.prepareStatement("select user_lv.level, member.ID, member.Password " +
+                    "from member inner join user_lv on Board.User_ID = user_lv.ID where member.ID=?");
+            pstmt.setString(1,ID);
+
             while(rs.next()) {
                 String field1 = rs.getString("Title").trim();
                 String field2 = rs.getString("User_ID").trim();
                 if(field1.equals(title) && field2.equals(ID)) {
+
                     System.out.println("삭제 하시겠습니까? Y/N");
                     System.out.print(">> ");
                     String yn = in.nextLine();
