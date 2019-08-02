@@ -1,8 +1,7 @@
 package Board;
 
 import java.sql.*;
-import java.util.Scanner;
-import java.util.Calendar;
+import java.util.*;
 import java.text.SimpleDateFormat;
 
 public class N_board {
@@ -37,7 +36,20 @@ public class N_board {
             System.out.println("제목 입력");
             title = in.nextLine();
 
-            String message = "아 집가고 싶다......\n";
+            String message = "";
+            System.out.println("내용 입력");
+            System.out.println("종료시 'quit'만 입력");
+            while(in.hasNextLine()) {
+                String[] tokens = in.nextLine().split("\\s");
+                if(tokens.length == 1 && tokens[0].equals("quit")) {
+                    System.out.println("입력 종료");
+                    break;
+                }
+                for(int i = 0; i < tokens.length; i++) {
+                    message += tokens[i] + " ";
+                }
+                message += "\n";
+            }
 
             String sql = "insert into Board([User_ID], [Title], [Date], [Contents])";
             sql += " VALUES("+"'"+ID+"','"+title+"','"+ dateFormat.format(cal.getTime())+"','" +message+"')";
