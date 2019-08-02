@@ -9,11 +9,11 @@ public class main {
         String ID;
         Menu menu = new Menu();
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String connectionUrl = "jdbc:sqlserver://192.168.120.19:1433;" +
-                    "databaseName=pratice_j;user=testj;password=12345;";
-            Connection con = DriverManager.getConnection(connectionUrl);
             while(true) {
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                String connectionUrl = "jdbc:sqlserver://192.168.120.19:1433;" +
+                        "databaseName=pratice_j;user=testj;password=12345;";
+                Connection con = DriverManager.getConnection(connectionUrl);
                 int select = menu.menu_select();
                 int after_login = 0;
                 switch (select) {
