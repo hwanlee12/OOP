@@ -107,6 +107,7 @@ public class N_board {
                         break;
                     }
                     else {
+                        delete = 2;
                         break;
                     }
                 }
@@ -115,6 +116,9 @@ public class N_board {
             }
             if (delete == 1) {
                 System.out.println("삭제 완료");
+            }
+            else if (delete == 2) {
+                System.out.println("삭제 안 함");
             }
             else {
                 System.out.println("글쓴이외 삭제 불가");

@@ -57,12 +57,10 @@ public class Login {
             }
             finally {
                 if(select == 1) {
-                    board.prtBoard(con);
                     board.wrtBoard(ID, con);
                     break;
                 }
                 else if(select == 2) {
-                    board.prtBoard(con);
                     board.delBoard(ID, con);
                     break;
                 }
