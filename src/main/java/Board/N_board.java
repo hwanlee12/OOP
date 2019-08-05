@@ -94,11 +94,9 @@ public class N_board {
             String title = in.nextLine();
 
             Statement stmt = con.createStatement();
-
             PreparedStatement pstmt1 = con.prepareStatement("select Level from user_lv where ID = ?");
             pstmt1.setString(1, ID);
             ResultSet user_info = pstmt1.executeQuery();
-
             while(user_info.next()){
                 user_level = user_info.getInt("Level");
             }
@@ -134,8 +132,9 @@ public class N_board {
                             break;
                         }
                     }
-                    else
-                        continue;
+                    else {
+                        delete = 4;
+                    }
                 }
                 else {// field3 > user_level삭제 가능
                     if(field1.equals(title)) {
@@ -155,7 +154,6 @@ public class N_board {
                     }
                 }
             }
-
             if (delete == 1) {
                 System.out.println("삭제 완료");
             }
@@ -165,13 +163,14 @@ public class N_board {
             else if(delete == 3){
                 System.out.println("권한 부족");
             }
-            else {
+            else if(delete == 4){
                 System.out.println("글쓴이외 삭제 불가");
             }
-
+            else {
+                System.out.printf("%s이 존재하지 않음\n",title);
+            }
             pstmt.close();
             stmt.close();
-
         }
         catch (SQLException sqle) {
             System.out.println("SQLException : " + sqle);
