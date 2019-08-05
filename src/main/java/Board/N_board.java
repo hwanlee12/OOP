@@ -89,9 +89,9 @@ public class N_board {
         int delete = 0;
         int user_level = 0;
         try {
-            System.out.println("삭제할 제목 입력");
+            System.out.println("삭제할 글 번호 입력");
             System.out.print(">>");
-            String title = in.nextLine();
+            int title_num = in.nextInt();
 
             Statement stmt = con.createStatement();
             PreparedStatement pstmt1 = con.prepareStatement("select Level from user_lv where ID = ?");
@@ -101,28 +101,29 @@ public class N_board {
                 user_level = user_info.getInt("Level");
             }
 
-            PreparedStatement pstmt = con.prepareStatement("select user_lv.Level, Board.User_ID, Board.Title " +
+            PreparedStatement pstmt = con.prepareStatement("select user_lv.Level, Board.User_ID, Board.Board_num " +
                     "from Board inner join user_lv on Board.User_ID = user_lv.ID " +
-                    "where Title=?");
-            pstmt.setString(1,title);
+                    "where Board_num=?");
+            pstmt.setInt(1,title_num);
             ResultSet rs = pstmt.executeQuery();
 
             while(rs.next()) {
-                String field1 = rs.getString("Title").trim();
+                int field1 = rs.getInt("Board_num");
                 String field2 = rs.getString("User_ID").trim();
                 int field3 = rs.getInt("Level");
+                String dump = in.nextLine();
 
                 if(field3 < user_level) {
                     delete = 3;
                     break;
                 }
                 else if(field3 == user_level) {
-                    if(field1.equals(title) && field2.equals(ID)) {
+                    if(field1 == title_num && field2.equals(ID)) {
                         System.out.println("삭제 하시겠습니까? Y/N");
                         System.out.print(">> ");
                         String yn = in.nextLine();
                         if(yn.equals("y") || yn.equals("Y")) {
-                            String sql = "delete from Board WHERE Title="+"'"+title+"'";
+                            String sql = "delete from Board WHERE Board_num="+title_num;
                             stmt.executeUpdate(sql);
                             delete = 1;
                             break;
@@ -137,12 +138,12 @@ public class N_board {
                     }
                 }
                 else {// field3 > user_level삭제 가능
-                    if(field1.equals(title)) {
+                    if(field1 == title_num) {
                         System.out.println("삭제 하시겠습니까? Y/N");
                         System.out.print(">> ");
                         String yn = in.nextLine();
                         if(yn.equals("y") || yn.equals("Y")) {
-                            String sql = "delete from Board WHERE Title="+"'"+title+"'";
+                            String sql = "delete from Board WHERE Title="+"'"+title_num+"'";
                             stmt.executeUpdate(sql);
                             delete = 1;
                             break;
@@ -167,7 +168,7 @@ public class N_board {
                 System.out.println("글쓴이외 삭제 불가");
             }
             else {
-                System.out.printf("%s이 존재하지 않음\n",title);
+                System.out.printf("%d이 존재하지 않음\n",title_num);
             }
             pstmt.close();
             stmt.close();
