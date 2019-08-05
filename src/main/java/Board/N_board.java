@@ -87,49 +87,91 @@ public class N_board {
     public void delBoard(String ID, Connection con) {
         Scanner in = new Scanner(System.in);
         int delete = 0;
+        int user_level = 0;
         try {
             System.out.println("삭제할 제목 입력");
             System.out.print(">>");
             String title = in.nextLine();
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select Title, User_ID from Board");
 
-            PreparedStatement pstmt = con.prepareStatement("select user_lv.level, member.ID, member.Password " +
-                    "from member inner join user_lv on Board.User_ID = user_lv.ID where member.ID=?");
-            pstmt.setString(1,ID);
+            Statement stmt = con.createStatement();
+
+            PreparedStatement pstmt1 = con.prepareStatement("select Level from user_lv where ID = ?");
+            pstmt1.setString(1, ID);
+            ResultSet user_info = pstmt1.executeQuery();
+
+            while(user_info.next()){
+                user_level = user_info.getInt("Level");
+            }
+
+            PreparedStatement pstmt = con.prepareStatement("select user_lv.Level, Board.User_ID, Board.Title " +
+                    "from Board inner join user_lv on Board.User_ID = user_lv.ID " +
+                    "where Title=?");
+            pstmt.setString(1,title);
+            ResultSet rs = pstmt.executeQuery();
 
             while(rs.next()) {
                 String field1 = rs.getString("Title").trim();
                 String field2 = rs.getString("User_ID").trim();
-                if(field1.equals(title) && field2.equals(ID)) {
+                int field3 = rs.getInt("Level");
 
-                    System.out.println("삭제 하시겠습니까? Y/N");
-                    System.out.print(">> ");
-                    String yn = in.nextLine();
-                    if(yn.equals("y") || yn.equals("Y")) {
-                        String sql = "delete from Board WHERE Title="+"'"+title+"'";
-                        stmt.executeUpdate(sql);
-                        delete = 1;
-                        break;
+                if(field3 < user_level) {
+                    delete = 3;
+                    break;
+                }
+                else if(field3 == user_level) {
+                    if(field1.equals(title) && field2.equals(ID)) {
+                        System.out.println("삭제 하시겠습니까? Y/N");
+                        System.out.print(">> ");
+                        String yn = in.nextLine();
+                        if(yn.equals("y") || yn.equals("Y")) {
+                            String sql = "delete from Board WHERE Title="+"'"+title+"'";
+                            stmt.executeUpdate(sql);
+                            delete = 1;
+                            break;
+                        }
+                        else {
+                            delete = 2;
+                            break;
+                        }
                     }
-                    else {
-                        delete = 2;
-                        break;
+                    else
+                        continue;
+                }
+                else {// field3 > user_level삭제 가능
+                    if(field1.equals(title)) {
+                        System.out.println("삭제 하시겠습니까? Y/N");
+                        System.out.print(">> ");
+                        String yn = in.nextLine();
+                        if(yn.equals("y") || yn.equals("Y")) {
+                            String sql = "delete from Board WHERE Title="+"'"+title+"'";
+                            stmt.executeUpdate(sql);
+                            delete = 1;
+                            break;
+                        }
+                        else {
+                            delete = 2;
+                            break;
+                        }
                     }
                 }
-                else
-                    continue;
             }
+
             if (delete == 1) {
                 System.out.println("삭제 완료");
             }
             else if (delete == 2) {
                 System.out.println("삭제 안 함");
             }
+            else if(delete == 3){
+                System.out.println("권한 부족");
+            }
             else {
                 System.out.println("글쓴이외 삭제 불가");
             }
+
+            pstmt.close();
             stmt.close();
+
         }
         catch (SQLException sqle) {
             System.out.println("SQLException : " + sqle);
