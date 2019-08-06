@@ -21,6 +21,7 @@ public class N_board {
                 System.out.println(field4);
             }
             System.out.println("==========================================================================");
+            System.out.println();
             rs.close();
             stmt.close();
         } catch (SQLException sqle) {
@@ -41,6 +42,7 @@ public class N_board {
             String message = "";
             System.out.println("내용 입력");
             System.out.println("종료시 'quit'만 입력");
+            System.out.print(">> ");
             while(in.hasNextLine()) {
                 String[] tokens = in.nextLine().split("\\s");
                 if(tokens.length == 1 && tokens[0].equals("quit")) {
@@ -81,6 +83,8 @@ public class N_board {
                     String field2 = rs.getString("Contents").trim();
                     int num = rs.getInt("Board_num");
                     if(exist == 1) {
+                        System.out.println();
+                        System.out.print("제 목 : ");
                         System.out.println(field1);
                         System.out.println(field2);
                         break;

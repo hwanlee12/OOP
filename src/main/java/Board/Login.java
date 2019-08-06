@@ -60,14 +60,17 @@ public class Login {
             }
             finally {
                 if(select == 1) {
+                    System.out.println();
                     board.wrtBoard(ID, con);
                     break;
                 }
                 else if(select == 2) {
+                    System.out.println();
                     board.delBoard(ID, con);
                     break;
                 }
                 else if(select == 3) {
+                    System.out.println();
                     board.show_contents(con);
                     break;
                 }
@@ -80,6 +83,7 @@ public class Login {
                 }
             }
         }
+        System.out.println();
         return select;
     }
 }
