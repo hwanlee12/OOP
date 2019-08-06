@@ -67,6 +67,7 @@ public class Join {
                     Scanner admin = new Scanner(System.in);
                     String admin_ID, admin_PW;
                     try {
+                        int exist = 0;
                         System.out.println("권한1인 ID 입력");
                         System.out.print(">> ");
                         admin_ID = admin.nextLine();
@@ -81,6 +82,7 @@ public class Join {
                         admin_check.setString(1, admin_ID);
                         ResultSet check_rs = admin_check.executeQuery();
                         while(check_rs.next()) {
+                            exist = 1;
                             String PW_rs = check_rs.getString("Password");
                             if(PW_rs.equals(admin_PW)) {
                                 PreparedStatement pstmt_in = con.prepareStatement("insert into member(ID, Password) values(?, ?)");
@@ -95,8 +97,12 @@ public class Join {
                                 System.out.println("Join success");
                             }
                             else {
-                                System.out.println("비밀번호 일치하지 않음");
+                                System.out.println("ID 또는 비밀번호 일치하지 않음");
                             }
+                        }
+                        if(exist == 0) {
+                            System.out.println("존재하지 않는 계정");
+                            System.out.println("Join error");
                         }
                     }
                     catch (Exception e) {
