@@ -20,7 +20,7 @@ public class main {
                     case 1: // 로그인
                         ID = menu.login.login(con);
                         if (ID.equals("Login Error")) {
-                            System.out.println("Login Error");
+                            System.out.println("로그인 에러");
                             break;
                         }
 

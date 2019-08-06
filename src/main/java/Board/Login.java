@@ -25,8 +25,8 @@ public class Login {
                 String field2 = rs.getString("Password").trim();
                 int level = rs.getInt("Level");
                 if(field1.equals(ID) && field2.equals(md5.testMD5(Password))) {
-                    System.out.println("login success");
-                    System.out.printf("User level is %d\n", level);
+                    System.out.println("로그인");
+                    System.out.printf("권한 레벨 %d\n", level);
                     return ID;
                 }
                 else

@@ -9,6 +9,7 @@ public class N_board {
         try {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("select * from Board");
+            System.out.println("==================================게시판==================================");
             while(rs.next()) {
                 String field1 = rs.getString("Board_num");
                 String field2 = rs.getString("User_ID");
@@ -19,6 +20,7 @@ public class N_board {
                 System.out.print(field3 + "\t");
                 System.out.println(field4);
             }
+            System.out.println("==========================================================================");
             rs.close();
             stmt.close();
         } catch (SQLException sqle) {
@@ -156,7 +158,7 @@ public class N_board {
                         System.out.print(">> ");
                         String yn = in.nextLine();
                         if(yn.equals("y") || yn.equals("Y")) {
-                            String sql = "delete from Board WHERE Title="+"'"+title_num+"'";
+                            String sql = "delete from Board WHERE Board_num="+"'"+title_num+"'";
                             stmt.executeUpdate(sql);
                             delete = 1;
                             break;
