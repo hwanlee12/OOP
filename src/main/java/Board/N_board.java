@@ -62,25 +62,36 @@ public class N_board {
     }
 
     public void show_contents(Connection con) {
-        Scanner in = new Scanner(System.in);
-        String title;
-        System.out.println("제목 입력");
-        System.out.print(">>");
-        title = in.nextLine();
         try {
-            PreparedStatement pstmt = con.prepareStatement("select * from Board where Title=?");
-            pstmt.setString(1, title);
-            ResultSet rs = pstmt.executeQuery();
-            while (rs.next()) {
-                String field1 = rs.getString("Title").trim();
-                String field2 = rs.getString("Contents").trim();
-                if (field1.equals(title)) {
-                    System.out.println(field2);
-                    break;
+            int title_num;
+            int exist = 0;
+            System.out.println("글 번호 입력");
+            System.out.print(">>");
+            Scanner in = new Scanner(System.in);
+            title_num = in.nextInt();
+            try {
+                PreparedStatement pstmt = con.prepareStatement("select * from Board where Board_num=?");
+                pstmt.setInt(1, title_num);
+                ResultSet rs = pstmt.executeQuery();
+                while (rs.next()) {
+                    exist = 1;
+                    String field1 = rs.getString("Title").trim();
+                    String field2 = rs.getString("Contents").trim();
+                    int num = rs.getInt("Board_num");
+                    if(exist == 1) {
+                        System.out.println(field1);
+                        System.out.println(field2);
+                        break;
+                    }
                 }
+            } catch (SQLException sqle) {
+                System.out.println("SQLException : " + sqle);
             }
-        } catch (SQLException sqle) {
-            System.out.println("SQLException : " + sqle);
+
+        }
+        catch (Exception e) {
+            System.out.println("재 입력");
+            Scanner in = new Scanner(System.in);
         }
     }
 
