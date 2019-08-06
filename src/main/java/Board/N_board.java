@@ -87,7 +87,9 @@ public class N_board {
             } catch (SQLException sqle) {
                 System.out.println("SQLException : " + sqle);
             }
-
+            if(exist == 0) {
+                System.out.println("존재하지 않음");
+            }
         }
         catch (Exception e) {
             System.out.println("재 입력");
