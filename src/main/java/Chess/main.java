@@ -13,7 +13,6 @@ public class main {
             System.out.println("4. 체스판 보기");
             System.out.println("5. 말 이동");
             System.out.println("6. 종료");
-
             System.out.print(">>");
             int input = in.nextInt();
 
